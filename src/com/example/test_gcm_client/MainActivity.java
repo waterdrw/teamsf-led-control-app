@@ -24,17 +24,17 @@ public class MainActivity extends Activity{
 	Button btnSendGcmMessage;
 	
     /**
-     * È­¸é ¼³Á¤
+     * í™”ë©´ ì„¤ì •
      */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        // µğ¹ÙÀÌ½º GCM »ç¿ë °¡´ÉÇÑÁö È®ÀÎ
+        // ë””ë°”ì´ìŠ¤ GCM ì‚¬ìš© ê°€ëŠ¥í•œì§€ í™•ì¸
         GCMRegistrar.checkDevice(this);
-        // ¸Å´ÏÆä½ºÆ® ¼³Á¤ÀÌ ¿Ã¹Ù¸¥Áö È®ÀÎ
+        // ë§¤ë‹ˆí˜ìŠ¤íŠ¸ ì„¤ì •ì´ ì˜¬ë°”ë¥¸ì§€ í™•ì¸
         GCMRegistrar.checkManifest(this);
-        // µî·Ï
+        // ë“±ë¡
         registerToken();
         
         btnSendGcmMessage = (Button)findViewById(R.id.button1);
@@ -65,10 +65,10 @@ public class MainActivity extends Activity{
    
     
     /**
-     * GCM¿¡ µğ¹ÙÀÌ½º ÅäÅ« µî·Ï
+     * GCMì— ë””ë°”ì´ìŠ¤ í† í° ë“±ë¡
      */
     private void registerToken() {
-        // registration ID£¨µğ¹ÙÀÌ½º ÅäÅ«) ÃëµæÇÏ°í µî·ÏµÇÁö ¾ÊÀº °æ¿ì GCM¿¡ µî·Ï
+        // registration IDï¼ˆë””ë°”ì´ìŠ¤ í† í°) ì·¨ë“í•˜ê³  ë“±ë¡ë˜ì§€ ì•Šì€ ê²½ìš° GCMì— ë“±ë¡
         final String regId = GCMRegistrar.getRegistrationId(this);
         if ("".equals(regId)) {
         	GCMRegistrar.register(this, GCMIntentService.SENDER_ID);
@@ -78,7 +78,7 @@ public class MainActivity extends Activity{
     }
     
     /**
-     * GCM¿¡ µğ¹ÙÀÌ½ºÅäÅ« »èÁ¦
+     * GCMì— ë””ë°”ì´ìŠ¤í† í° ì‚­ì œ
      */
     private void unregisterToken() {
         if (GCMRegistrar.isRegistered(this)) {
